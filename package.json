@@ -1,19 +1,25 @@
 {
-  "name": "n8n-nodes-<...>",
+  "name": "n8n-nodes-deepseek",
   "version": "0.1.0",
   "description": "",
   "keywords": [
-    "n8n-community-node-package"
+    "deepseek",
+    "n8n-community-node-package",
+    "n8n-nodes-deepseek",
+    "n8n-nodes",
+    "n8n",
+    "n8n.io",
+    "n8n.io-nodes"
   ],
   "license": "MIT",
   "homepage": "",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "rubickecho",
+    "email": "tangliangcheng852@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
+    "url": "https://github.com/rubickecho/n8n-deepseek.git"
   },
   "engines": {
     "node": ">=18.10",

@@ -1,0 +1,18 @@
+{
+	"node": "n8n-nodes-base.DeepSeek",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Utility"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://github.com/rubickecho/n8n-deepseek"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/rubickecho/n8n-deepseek"
+			}
+		]
+	}
+}
