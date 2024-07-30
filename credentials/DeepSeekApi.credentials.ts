@@ -8,9 +8,9 @@ import type {
 export class DeepSeekApi implements ICredentialType {
 	name = 'deepSeekApi';
 
-	displayName = 'DeepSeek';
+	displayName = 'DeepSeek API';
 
-	documentationUrl = 'deepSeek';
+	documentationUrl = 'https://platform.deepseek.com/api-docs/';
 
 	properties: INodeProperties[] = [
 		{

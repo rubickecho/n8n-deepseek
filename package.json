@@ -1,7 +1,7 @@
 {
   "name": "n8n-nodes-deepseek",
-  "version": "0.1.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "a `DeepSeek` AI node, like OpenAI.",
   "keywords": [
     "deepseek",
     "n8n-community-node-package",
@@ -42,12 +42,10 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/ExampleCredentialsApi.credentials.js",
-      "dist/credentials/HttpBinApi.credentials.js"
+      "dist/credentials/DeepSeek.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/ExampleNode/ExampleNode.node.js",
-      "dist/nodes/HttpBin/HttpBin.node.js"
+      "dist/nodes/DeepSeek/DeepSeek.node.js"
     ]
   },
   "devDependencies": {

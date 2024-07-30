@@ -5,7 +5,7 @@ export class DeepSeek implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'DeepSeek',
 		name: 'deepSeek',
-		hidden: true,
+		// hidden: true,
 		icon: { light: 'file:DeepSeek.svg', dark: 'file:DeepSeek.svg' },
 		group: ['transform'],
 		version: [1, 1.1],
@@ -38,7 +38,7 @@ export class DeepSeek implements INodeType {
 						value: 'chat',
 					}
 				],
-				default: 'text',
+				default: 'chat',
 			},
 
 			...chatOperations,
