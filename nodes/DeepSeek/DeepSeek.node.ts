@@ -1,5 +1,5 @@
 import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
-import { chatFields, chatOperations } from './ChatDescription';
+import { chatFields, chatOperations, fimOperations } from './ChatDescription';
 
 export class DeepSeek implements INodeType {
 	description: INodeTypeDescription = {
@@ -35,13 +35,18 @@ export class DeepSeek implements INodeType {
 				options: [
 					{
 						name: 'Chat',
-						value: 'chat',
+						value: 'chat'
+					},
+					{
+						name: 'FIM',
+						value: 'fim'
 					}
 				],
 				default: 'chat',
 			},
 
 			...chatOperations,
+			...fimOperations,
 			...chatFields
 		],
 	};

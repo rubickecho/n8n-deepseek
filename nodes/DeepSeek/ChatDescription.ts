@@ -16,15 +16,46 @@ export const chatOperations: INodeProperties[] = [
 			{
 				name: 'Complete',
 				value: 'complete',
-				action: 'Create a completion',
-				description: 'Create one or more completions for a given text',
+				action: 'Create Chat Completion',
+				description: 'Creates a model response for the given chat conversation.',
+
 				routing: {
 					request: {
 						method: 'POST',
 						url: '/chat/completions',
 					},
 					output: { postReceive: [sendErrorPostReceive] },
-				},
+				}
+			}
+		],
+		default: 'complete',
+	},
+];
+
+export const fimOperations: INodeProperties[] = [
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
+		displayOptions: {
+			show: {
+				resource: ['fim'],
+			},
+		},
+		options: [
+			{
+				name: 'Complete',
+				value: 'complete',
+				action: 'Create FIM Completion (Beta)',
+				description: 'The FIM (Fill-In-the-Middle) Completion API.',
+				routing: {
+					request: {
+						method: 'POST',
+						url: '/beta/completions',
+					},
+					output: { postReceive: [sendErrorPostReceive] },
+				}
 			},
 		],
 		default: 'complete',
@@ -40,9 +71,7 @@ const completeOperations: INodeProperties[] = [
 			'The model which will generate the completion. <a href="https://platform.deepseek.com/api-docs/pricing/">Learn more</a>.',
 		displayOptions: {
 			show: {
-				operation: ['complete'],
-				resource: ['chat'],
-				// '@version': [1],
+				resource: ['chat', 'fim'],
 			},
 		},
 		typeOptions: {
@@ -92,68 +121,7 @@ const completeOperations: INodeProperties[] = [
 		},
 		default: '',
 	},
-	{
-		displayName: 'Model',
-		name: 'chatModel',
-		type: 'options',
-		description:
-			'The model which will generate the completion. <a href="https://platform.deepseek.com/api-docs/api/create-chat-completion/">Learn more</a>.',
-		displayOptions: {
-			show: {
-				operation: ['complete'],
-				resource: ['chat'],
-			},
-			// hide: {
-			// 	'@version': [1],
-			// },
-		},
-		typeOptions: {
-			loadOptions: {
-				routing: {
-					request: {
-						method: 'GET',
-						url: '/models',
-					},
-					output: {
-						postReceive: [
-							{
-								type: 'rootProperty',
-								properties: {
-									property: 'data',
-								},
-							},
-							{
-								type: 'filter',
-								properties: {
-									pass: "={{ $responseItem.id.startsWith('deepseek-') }}",
-								},
-							},
-							{
-								type: 'setKeyValue',
-								properties: {
-									name: '={{$responseItem.id}}',
-									value: '={{$responseItem.id}}',
-								},
-							},
-							{
-								type: 'sort',
-								properties: {
-									key: 'name',
-								},
-							},
-						],
-					},
-				},
-			},
-		},
-		routing: {
-			send: {
-				type: 'body',
-				property: 'model',
-			},
-		},
-		default: '',
-	},
+	// Prompt
 	{
 		displayName: 'Prompt',
 		name: 'prompt',
@@ -164,8 +132,7 @@ const completeOperations: INodeProperties[] = [
 		},
 		displayOptions: {
 			show: {
-				resource: ['chat'],
-				operation: ['complete'],
+				resource: ['chat', 'fim']
 			},
 		},
 		placeholder: 'Add Message',
@@ -215,6 +182,7 @@ const completeOperations: INodeProperties[] = [
 ];
 
 const sharedOperations: INodeProperties[] = [
+	// Simplify
 	{
 		displayName: 'Simplify',
 		name: 'simplifyOutput',
@@ -222,8 +190,8 @@ const sharedOperations: INodeProperties[] = [
 		default: true,
 		displayOptions: {
 			show: {
-				operation: ['complete'],
-				resource: ['chat'],
+				// operation: ['complete'],
+				resource: ['chat', 'fim'],
 			},
 		},
 		routing: {
@@ -261,7 +229,7 @@ const sharedOperations: INodeProperties[] = [
 		},
 		description: 'Whether to return a simplified version of the response instead of the raw data',
 	},
-
+	// Options
 	{
 		displayName: 'Options',
 		name: 'options',
@@ -271,8 +239,7 @@ const sharedOperations: INodeProperties[] = [
 		default: {},
 		displayOptions: {
 			show: {
-				operation: ['complete'],
-				resource: ['chat'],
+				resource: ['chat', 'fim']
 			},
 		},
 		options: [
@@ -389,7 +356,7 @@ const sharedOperations: INodeProperties[] = [
 						property: 'top_p',
 					},
 				},
-			},
+			}
 		],
 	},
 ];
