@@ -1,7 +1,7 @@
 import type { INodeExecutionData, INodeProperties } from 'n8n-workflow';
 import { sendErrorPostReceive } from './GenericFunctions';
 
-export const chatOperations: INodeProperties[] = [
+export const fimOperations: INodeProperties[] = [
 	{
 		displayName: 'Operation',
 		name: 'operation',
@@ -9,24 +9,23 @@ export const chatOperations: INodeProperties[] = [
 		noDataExpression: true,
 		displayOptions: {
 			show: {
-				resource: ['chat'],
+				resource: ['fim'],
 			},
 		},
 		options: [
 			{
 				name: 'Complete',
 				value: 'complete',
-				action: 'Create Chat Completion',
-				description: 'Creates a model response for the given chat conversation.',
-
+				action: 'Create FIM Completion (Beta)',
+				description: 'The FIM (Fill-In-the-Middle) Completion API.',
 				routing: {
 					request: {
 						method: 'POST',
-						url: '/chat/completions',
+						url: '/beta/completions',
 					},
 					output: { postReceive: [sendErrorPostReceive] },
 				}
-			}
+			},
 		],
 		default: 'complete',
 	},
@@ -41,7 +40,7 @@ const completeOperations: INodeProperties[] = [
 			'The model which will generate the completion. <a href="https://platform.deepseek.com/api-docs/pricing/">Learn more</a>.',
 		displayOptions: {
 			show: {
-				resource: ['chat'],
+				resource: ['fim'],
 			},
 		},
 		typeOptions: {
@@ -62,7 +61,7 @@ const completeOperations: INodeProperties[] = [
 							{
 								type: 'filter',
 								properties: {
-									pass: "={{ $responseItem.id.startsWith('deepseek-') }}",
+									pass: "={{ $responseItem.id.startsWith('deepseek-coder') }}",
 								},
 							},
 							{
@@ -89,66 +88,30 @@ const completeOperations: INodeProperties[] = [
 				property: 'model',
 			},
 		},
-		default: '',
+		default: 'deepseek-coder',
 	},
-	// Prompt
 	{
 		displayName: 'Prompt',
 		name: 'prompt',
-		type: 'fixedCollection',
+		type: 'string',
+		required: true,
 		typeOptions: {
-			sortable: true,
-			multipleValues: true,
+			rows: 3,
 		},
+		default: '',
+		description: 'The prompt to generate completions for.',
 		displayOptions: {
 			show: {
-				resource: ['chat']
+				resource: ['fim']
 			},
 		},
-		placeholder: 'Add Message',
-		default: {},
-		options: [
-			{
-				displayName: 'Messages',
-				name: 'messages',
-				values: [
-					{
-						displayName: 'Role',
-						name: 'role',
-						type: 'options',
-						options: [
-							{
-								name: 'Assistant',
-								value: 'assistant',
-							},
-							{
-								name: 'System',
-								value: 'system',
-							},
-							{
-								name: 'User',
-								value: 'user',
-							},
-						],
-						default: 'user',
-					},
-					{
-						displayName: 'Content',
-						name: 'content',
-						type: 'string',
-						default: '',
-					},
-				],
-			},
-		],
 		routing: {
 			send: {
 				type: 'body',
-				property: 'messages',
-				value: '={{ $value.messages }}',
+				property: 'prompt',
 			},
 		},
-	},
+	}
 ];
 
 const sharedOperations: INodeProperties[] = [
@@ -160,7 +123,7 @@ const sharedOperations: INodeProperties[] = [
 		default: true,
 		displayOptions: {
 			show: {
-				resource: ['chat'],
+				resource: ['fim'],
 			},
 		},
 		routing: {
@@ -208,7 +171,7 @@ const sharedOperations: INodeProperties[] = [
 		default: {},
 		displayOptions: {
 			show: {
-				resource: ['chat']
+				resource: ['fim']
 			},
 		},
 		options: [
@@ -295,11 +258,11 @@ const sharedOperations: INodeProperties[] = [
 				},
 			},
 			{
-				displayName: 'Response Format',
-				name: 'response_format',
-				type: 'json',
-				default: '',
-				description: 'An object specifying the format that the model must output.',
+				displayName: 'Echo Prompt',
+				name: 'echo',
+				type: 'boolean',
+				description: 'Whether the prompt should be echo back in addition to the completion',
+				default: false,
 				displayOptions: {
 					show: {
 						'/operation': ['complete'],
@@ -308,8 +271,8 @@ const sharedOperations: INodeProperties[] = [
 				routing: {
 					send: {
 						type: 'body',
-						property: 'response_format',
-					}
+						property: 'echo',
+					},
 				},
 			},
 			{
@@ -331,12 +294,11 @@ const sharedOperations: INodeProperties[] = [
 				},
 			},
 			{
-				displayName: 'Top Logprobs',
-				name: 'top_logprobs',
-				type: 'number',
-				default: null,
-				typeOptions: { maxValue: 20, minValue: 0, numberPrecision: 1 },
-				description: 'An integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability. logprobs must be set to true if this parameter is used.',
+				displayName: 'Suffix',
+				name: 'suffix',
+				type: 'string',
+				default: '',
+				description: 'The suffix that comes after a completion of inserted text.',
 				displayOptions: {
 					show: {
 						'/operation': ['complete'],
@@ -345,7 +307,7 @@ const sharedOperations: INodeProperties[] = [
 				routing: {
 					send: {
 						type: 'body',
-						property: 'top_logprobs',
+						property: 'suffix',
 					},
 				}
 			},
@@ -353,7 +315,7 @@ const sharedOperations: INodeProperties[] = [
 	},
 ];
 
-export const chatFields: INodeProperties[] = [
+export const FIMFields: INodeProperties[] = [
 	/* -------------------------------------------------------------------------- */
 	/*                               chat:complete                        */
 	/* -------------------------------------------------------------------------- */
