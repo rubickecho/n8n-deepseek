@@ -16,8 +16,8 @@ export const chatOperations: INodeProperties[] = [
 			{
 				name: 'Complete',
 				value: 'complete',
-				action: 'Create Chat Completion',
-				description: 'Creates a model response for the given chat conversation.',
+				action: 'Create chat completion',
+				description: 'Creates a model response for the given chat conversation',
 
 				routing: {
 					request: {
@@ -299,7 +299,7 @@ const sharedOperations: INodeProperties[] = [
 				name: 'response_format',
 				type: 'json',
 				default: '',
-				description: 'An object specifying the format that the model must output.',
+				description: 'An object specifying the format that the model must output',
 				displayOptions: {
 					show: {
 						'/operation': ['complete'],

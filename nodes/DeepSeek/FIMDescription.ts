@@ -16,8 +16,8 @@ export const fimOperations: INodeProperties[] = [
 			{
 				name: 'Complete',
 				value: 'complete',
-				action: 'Create FIM Completion (Beta)',
-				description: 'The FIM (Fill-In-the-Middle) Completion API.',
+				action: 'Create fim completion beta',
+				description: 'The FIM (Fill-In-the-Middle) Completion API',
 				routing: {
 					request: {
 						method: 'POST',
@@ -88,7 +88,7 @@ const completeOperations: INodeProperties[] = [
 				property: 'model',
 			},
 		},
-		default: 'deepseek-coder',
+		default: '',
 	},
 	{
 		displayName: 'Prompt',
@@ -99,7 +99,7 @@ const completeOperations: INodeProperties[] = [
 			rows: 3,
 		},
 		default: '',
-		description: 'The prompt to generate completions for.',
+		description: 'The prompt to generate completions for',
 		displayOptions: {
 			show: {
 				resource: ['fim']
@@ -298,7 +298,7 @@ const sharedOperations: INodeProperties[] = [
 				name: 'suffix',
 				type: 'string',
 				default: '',
-				description: 'The suffix that comes after a completion of inserted text.',
+				description: 'The suffix that comes after a completion of inserted text',
 				displayOptions: {
 					show: {
 						'/operation': ['complete'],

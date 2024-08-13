@@ -1,7 +1,7 @@
 {
   "name": "n8n-nodes-deepseek",
   "version": "1.0.0",
-  "description": "a `DeepSeek` AI node, like OpenAI.",
+  "description": "A user-friendly DeepSeek AI node, similar to OpenAI, designed to enhance your workflow.",
   "keywords": [
     "deepseek",
     "n8n-community-node-package",
@@ -21,11 +21,6 @@
     "type": "git",
     "url": "https://github.com/rubickecho/n8n-deepseek.git"
   },
-  "engines": {
-    "node": ">=18.10",
-    "pnpm": ">=9.1"
-  },
-  "packageManager": "pnpm@9.1.4",
   "main": "index.js",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
