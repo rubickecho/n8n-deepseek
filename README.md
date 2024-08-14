@@ -6,24 +6,26 @@ This is an n8n community node. It lets you use DeepSeek AI in your n8n workflows
 
 DeepSeek-V2 delivers impressive results on current major large model leaderboards.
 
+DeepSeek WebSite: https://www.deepseek.com/en
+
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
-[Installation](#installation)  
-[Credentials](#credentials)
-[Usage](#usage)
-[Resources](#resources)  
+- [Installation](#installation)  
+- [Credentials](#credentials)
+- [Usage](#usage)
+- [Resources](#resources)  
 
 ## Installation
 
 Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
 
-Use the package at (here)[https://www.npmjs.com/package/n8n-nodes-deepseek].
+Use the package at [here](https://www.npmjs.com/package/n8n-nodes-deepseek).
 
 ## Credentials
-![Add Credentials](images/credentials.jpg)
-
 Add your Api Key and store securely
+
+![Add Credentials](images/credentials.jpg)
 
 ## Usage
 
