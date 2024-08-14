@@ -36,7 +36,7 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/DeepSeek.credentials.js"
+      "dist/credentials/DeepSeekApi.credentials.js"
     ],
     "nodes": [
       "dist/nodes/DeepSeek/DeepSeek.node.js"
