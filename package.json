@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-deepseek",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A user-friendly DeepSeek AI node, similar to OpenAI, designed to enhance your workflow.",
   "keywords": [
     "deepseek",
