@@ -9,7 +9,7 @@ export class DeepSeek implements INodeType {
 		// hidden: true,
 		icon: { light: 'file:DeepSeek.svg', dark: 'file:DeepSeek.svg' },
 		group: ['transform'],
-		version: [1, 1.1],
+		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
 		description: 'Consume DeepSeek AI',
 		defaults: {
