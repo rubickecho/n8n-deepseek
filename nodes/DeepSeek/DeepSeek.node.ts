@@ -7,7 +7,7 @@ export class DeepSeek implements INodeType {
 		displayName: 'DeepSeek',
 		name: 'deepSeek',
 		// hidden: true,
-		icon: { light: 'file:DeepSeek.svg', dark: 'file:DeepSeek.svg' },
+		icon: { light: 'file:DeepSeek.svg', dark: 'file:DeepSeek-dark.svg' },
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',

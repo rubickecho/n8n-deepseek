@@ -3,12 +3,15 @@ import type {
 	ICredentialTestRequest,
 	ICredentialType,
 	INodeProperties,
+	Icon,
 } from 'n8n-workflow';
 
 export class DeepSeekApi implements ICredentialType {
 	name = 'deepSeekApi';
 
 	displayName = 'DeepSeek API';
+
+	icon: Icon = { light: 'file:DeepSeek.svg', dark: 'file:DeepSeek-dark.svg' };
 
 	documentationUrl = 'https://platform.deepseek.com/api-docs/';
 
