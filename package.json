@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-deepseek",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A user-friendly DeepSeek AI node, similar to OpenAI, designed to enhance your workflow. npm link: https://www.npmjs.com/package/n8n-nodes-deepseek",
   "keywords": [
     "deepseek",
