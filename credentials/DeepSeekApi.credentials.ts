@@ -23,14 +23,6 @@ export class DeepSeekApi implements ICredentialType {
 			typeOptions: { password: true },
 			required: true,
 			default: '',
-		},
-		{
-			displayName: 'baseUrl',
-			name: 'baseUrl',
-			type: 'string',
-			typeOptions: { password: false },
-			required: true,
-			default: 'https://api.deepseek.com',
 		}
 	];
 
@@ -45,7 +37,7 @@ export class DeepSeekApi implements ICredentialType {
 
 	test: ICredentialTestRequest = {
 		request: {
-			baseURL: '={{$credentials.baseUrl}}',
+			baseURL: 'http://host.docker.internal:1234/v1',
 			url: '/models',
 		},
 	};
