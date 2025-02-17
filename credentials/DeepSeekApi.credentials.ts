@@ -37,7 +37,7 @@ export class DeepSeekApi implements ICredentialType {
 
 	test: ICredentialTestRequest = {
 		request: {
-			baseURL: 'https://api.deepseek.com',
+			baseURL: 'http://host.docker.internal:1234/v1',
 			url: '/models',
 		},
 	};
