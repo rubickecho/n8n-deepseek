@@ -25,7 +25,7 @@ export class DeepSeek implements INodeType {
 		],
 		requestDefaults: {
 			ignoreHttpStatusErrors: true,
-			baseURL: 'http://host.docker.internal:1234/v1',
+			baseURL: 'https://api.deepseek.com',
 		},
 		properties: [
 			{
