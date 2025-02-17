@@ -1,6 +1,6 @@
 {
-  "name": "n8n-nodes-deepseek-new",
-  "version": "1.0.9",
+  "name": "n8n-nodes-deepseek",
+  "version": "1.0.6",
   "description": "A user-friendly DeepSeek AI node, similar to OpenAI, designed to enhance your workflow. npm link: https://www.npmjs.com/package/n8n-nodes-deepseek",
   "keywords": [
     "deepseek",
@@ -14,12 +14,12 @@
   "license": "MIT",
   "homepage": "https://www.npmjs.com/package/n8n-nodes-deepseek",
   "author": {
-    "name": "ValeroK86",
-    "email": "kvduck@duck.com"
+    "name": "rubickecho",
+    "email": "tangliangcheng852@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ValeroK/n8n-deepseek"
+    "url": "https://github.com/rubickecho/n8n-deepseek.git"
   },
   "scripts": {
     "build": "tsc && gulp build:icons",
