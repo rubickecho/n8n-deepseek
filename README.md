@@ -1,5 +1,7 @@
 ![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
 
+## ***I'm glad that the official n8n has supported the DeepSeek Chat Model at https://github.com/n8n-io/n8n/pull/12873. This community node is driven by interest, so I highly recommend everyone to install versions after `n8n@1.77.0` for a better experience of the magic that DeepSeek brings.***
+
 # n8n-nodes-deepseek
 
 This is an n8n community node. It lets you use DeepSeek AI in your n8n workflows.
@@ -27,8 +29,6 @@ Add your Api Key and store securely
 ![Add Credentials](images/credentials.jpg)
 
 ## Usage
-
-> I'm glad that the official n8n has supported the DeepSeek Chat Model at https://github.com/n8n-io/n8n/pull/12873. This community node is driven by interest, so I highly recommend everyone to install versions after `n8n@1.77.0` for a better experience of the magic that DeepSeek brings.
 
 Add a DeepSeek node to your workflow, select the action you want to perform, and enter the required fields.
 
