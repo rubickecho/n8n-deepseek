@@ -8,7 +8,6 @@ DeepSeek-V2 delivers impressive results on current major large model leaderboard
 
 DeepSeek WebSite: https://www.deepseek.com/en
 
-
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
 - [Installation](#installation)  
@@ -28,6 +27,8 @@ Add your Api Key and store securely
 ![Add Credentials](images/credentials.jpg)
 
 ## Usage
+
+> I'm glad that the official n8n has supported the DeepSeek Chat Model at https://github.com/n8n-io/n8n/pull/12873. This community node is driven by interest, so I highly recommend everyone to install versions after `n8n@1.77.0` for a better experience of the magic that DeepSeek brings.
 
 Add a DeepSeek node to your workflow, select the action you want to perform, and enter the required fields.
 
